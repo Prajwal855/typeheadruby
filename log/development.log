@@ -1,0 +1,462 @@
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUserApis (20230318071534)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "user_apis" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230318071534"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-18 07:16:55.880915"], ["updated_at", "2023-03-18 07:16:55.880915"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for ::1 at 2023-03-18 13:04:58 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersApiController#index as */*
+  [1m[36mUserApi Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:4:in `index'
+Completed 404 Not Found in 47ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 5161)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserApi Create (1.5ms)[0m  [1m[32mINSERT INTO "user_apis" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Karan"], ["last_name", "Yedlawr"], ["email", "karan@appviewx.com"], ["created_at", "2023-03-18 07:39:09.963984"], ["updated_at", "2023-03-18 07:39:09.963984"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserApi Create (1.7ms)[0m  [1m[32mINSERT INTO "user_apis" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Prajwal"], ["last_name", "M"], ["email", "Prajwal@gamil.com"], ["created_at", "2023-03-18 07:39:09.971880"], ["updated_at", "2023-03-18 07:39:09.971880"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserApi Create (1.2ms)[0m  [1m[32mINSERT INTO "user_apis" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "pavan"], ["last_name", "kumar"], ["email", "pavankumar@gamil.com"], ["created_at", "2023-03-18 07:39:09.979021"], ["updated_at", "2023-03-18 07:39:09.979021"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserApi Create (1.1ms)[0m  [1m[32mINSERT INTO "user_apis" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "vikas"], ["last_name", "kr"], ["email", "vikas@appviewx.com"], ["created_at", "2023-03-18 07:39:09.985244"], ["updated_at", "2023-03-18 07:39:09.985244"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users" for ::1 at 2023-03-18 13:09:16 +0530
+Processing by UsersApiController#index as */*
+  [1m[36mUserApi Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:4:in `index'
+  [1m[36mUserApi Load (0.3ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis"[0m
+  ↳ app/controllers/users_api_controller.rb:10:in `index'
+Completed 200 OK in 104ms (Views: 101.2ms | ActiveRecord: 1.2ms | Allocations: 8486)
+
+
+Started POST "/users/create" for ::1 at 2023-03-18 13:23:29 +0530
+Processing by UsersApiController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_api_controller.rb:22:in `create'
+  [1m[36mUserApi Create (1.4ms)[0m  [1m[32mINSERT INTO "user_apis" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Vishal"], ["last_name", "MC"], ["email", "vishal@gmail.com"], ["created_at", "2023-03-18 07:53:31.371086"], ["updated_at", "2023-03-18 07:53:31.371086"]]
+  ↳ app/controllers/users_api_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_api_controller.rb:22:in `create'
+Completed 201 Created in 21ms (Views: 0.7ms | ActiveRecord: 5.2ms | Allocations: 5119)
+
+
+Started POST "/users" for ::1 at 2023-03-18 13:23:49 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/users"):
+  
+Started POST "/users/create" for ::1 at 2023-03-18 13:31:28 +0530
+Processing by UsersApiController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Vishaljh", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "users_api"=>{"user"=>{"first_name"=>"Vishaljh", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_api_controller.rb:22:in `create'
+  [1m[36mUserApi Create (5.2ms)[0m  [1m[32mINSERT INTO "user_apis" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Vishaljh"], ["last_name", "MC"], ["email", "vishal@gmail.com"], ["created_at", "2023-03-18 08:01:38.970084"], ["updated_at", "2023-03-18 08:01:38.970084"]]
+  ↳ app/controllers/users_api_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_api_controller.rb:22:in `create'
+Completed 201 Created in 65ms (Views: 2.5ms | ActiveRecord: 15.8ms | Allocations: 4652)
+
+
+Started PUT "/users/6" for ::1 at 2023-03-18 13:38:06 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/users/6"):
+  
+Started PUT "/users/6" for ::1 at 2023-03-18 13:39:01 +0530
+Processing by UsersApiController#update as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (0.8ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:61:in `set_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_api_controller.rb:38:in `update'
+  [1m[36mUserApi Update (5.9ms)[0m  [1m[33mUPDATE "user_apis" SET "first_name" = ?, "updated_at" = ? WHERE "user_apis"."id" = ?[0m  [["first_name", "Vishal"], ["updated_at", "2023-03-18 08:09:02.780548"], ["id", 6]]
+  ↳ app/controllers/users_api_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_api_controller.rb:38:in `update'
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 16.7ms | Allocations: 6685)
+
+
+  
+NoMethodError (undefined method `save' for true:TrueClass
+
+        if user.save
+               ^^^^^):
+  
+app/controllers/users_api_controller.rb:39:in `update'
+Started PUT "/users/6" for ::1 at 2023-03-18 13:39:39 +0530
+Processing by UsersApiController#update as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (1.8ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:61:in `set_user'
+Completed 200 OK in 60ms (Views: 0.5ms | ActiveRecord: 7.6ms | Allocations: 4059)
+
+
+Started PUT "/users/6" for ::1 at 2023-03-18 13:42:04 +0530
+Processing by UsersApiController#update as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (1.7ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:60:in `set_user'
+Completed 200 OK in 84ms (Views: 1.8ms | ActiveRecord: 12.4ms | Allocations: 4065)
+
+
+Started PUT "/users/6" for ::1 at 2023-03-18 13:42:34 +0530
+Processing by UsersApiController#update as */*
+  Parameters: {"user"=>{"first_name"=>"Vish", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vish", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (1.1ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:60:in `set_user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_api_controller.rb:38:in `update'
+  [1m[36mUserApi Update (11.6ms)[0m  [1m[33mUPDATE "user_apis" SET "first_name" = ?, "updated_at" = ? WHERE "user_apis"."id" = ?[0m  [["first_name", "Vish"], ["updated_at", "2023-03-18 08:12:34.371206"], ["id", 6]]
+  ↳ app/controllers/users_api_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_api_controller.rb:38:in `update'
+Completed 200 OK in 67ms (Views: 4.3ms | ActiveRecord: 22.7ms | Allocations: 2545)
+
+
+Started DELETE "/users/6" for ::1 at 2023-03-18 13:52:28 +0530
+  
+SyntaxError (C:/Users/SPURGE/user/app/controllers/users_api_controller.rb:71: syntax error, unexpected local variable or method, expecting '}'
+                error: user.error.full_message
+                ^~~~~
+C:/Users/SPURGE/user/app/controllers/users_api_controller.rb:72: syntax error, unexpected '}', expecting `end'
+            },stauts: :unproccessable_enti...
+            ^
+):
+  
+app/controllers/users_api_controller.rb:71: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/users_api_controller.rb:72: syntax error, unexpected '}', expecting `end'
+app/controllers/users_api_controller.rb:71: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/users_api_controller.rb:72: syntax error, unexpected '}', expecting `end'
+Started DELETE "/users/6" for ::1 at 2023-03-18 13:53:13 +0530
+Processing by UsersApiController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mUserApi Load (0.9ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:82:in `set_user'
+  [1m[36mUserApi Destroy (15.4ms)[0m  [1m[31mDELETE FROM "user_apis" WHERE "user_apis"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/users_api_controller.rb:64:in `destroy'
+Completed 200 OK in 67ms (Views: 0.5ms | ActiveRecord: 17.9ms | Allocations: 3741)
+
+
+Started GET "/users/6" for ::1 at 2023-03-18 13:53:33 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (1.2ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:82:in `set_user'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.2ms | Allocations: 1437)
+
+
+  
+NoMethodError (undefined method `error' for nil:NilClass
+
+                error: user.error.full_message
+                           ^^^^^^):
+  
+app/controllers/users_api_controller.rb:27:in `show'
+Started GET "/users/6" for ::1 at 2023-03-18 13:54:28 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (1.6ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:82:in `set_user'
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 7.3ms | Allocations: 2930)
+
+
+  
+NoMethodError (undefined method `exists?' for nil:NilClass
+
+        if user.exists?
+               ^^^^^^^^):
+  
+app/controllers/users_api_controller.rb:19:in `show'
+Started GET "/users/6" for ::1 at 2023-03-18 13:57:46 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (0.8ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:82:in `set_user'
+Completed 500 Internal Server Error in 45ms (Views: 1.1ms | ActiveRecord: 3.8ms | Allocations: 3809)
+
+
+  
+NoMethodError (undefined method `exists?' for "{\"message\":\"User Not Found\"}":String
+
+        if user.exists?
+               ^^^^^^^^):
+  
+app/controllers/users_api_controller.rb:19:in `show'
+Started GET "/users/6" for ::1 at 2023-03-18 13:58:07 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (0.5ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:82:in `set_user'
+Completed 500 Internal Server Error in 29ms (Views: 0.5ms | ActiveRecord: 2.9ms | Allocations: 3802)
+
+
+  
+NoMethodError (undefined method `exists?' for "{\"message\":\"User Not Found\"}":String
+
+        if user.exists?
+               ^^^^^^^^):
+  
+app/controllers/users_api_controller.rb:19:in `show'
+Started GET "/users/6" for ::1 at 2023-03-18 13:59:12 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (1.0ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:82:in `set_user'
+Completed 500 Internal Server Error in 43ms (Views: 0.7ms | ActiveRecord: 3.5ms | Allocations: 2300)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_api_controller.rb:20:in `show'
+Started GET "/users/6" for ::1 at 2023-03-18 13:59:54 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (0.9ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:82:in `set_user'
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 3.0ms | Allocations: 2994)
+
+
+  
+NoMethodError (undefined method `error' for nil:NilClass
+
+                error: user.error.full_message
+                           ^^^^^^):
+  
+app/controllers/users_api_controller.rb:27:in `show'
+Started GET "/users/6" for ::1 at 2023-03-18 14:11:08 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (2.4ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:82:in `set_user'
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 6.0ms | Allocations: 2767)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+                error: user.errors.full_messages
+                           ^^^^^^^):
+  
+app/controllers/users_api_controller.rb:27:in `show'
+Started GET "/users/6" for ::1 at 2023-03-18 14:11:46 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (1.1ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:81:in `set_user'
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 7.0ms | Allocations: 2200)
+
+
+  
+ArgumentError (Unrecognized status code :unproccessable_entity):
+  
+app/controllers/users_api_controller.rb:25:in `show'
+Started GET "/users/6" for ::1 at 2023-03-18 14:12:22 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"6", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (1.2ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:81:in `set_user'
+Completed 404 Not Found in 59ms (Views: 0.9ms | ActiveRecord: 10.1ms | Allocations: 2198)
+
+
+Started GET "/users/1" for ::1 at 2023-03-18 14:12:43 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}, "id"=>"1", "users_api"=>{"user"=>{"first_name"=>"Vishal", "last_name"=>"MC", "email"=>"vishal@gmail.com"}}}
+  [1m[36mUserApi Load (0.7ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:81:in `set_user'
+Completed 200 OK in 15ms (Views: 1.7ms | ActiveRecord: 2.2ms | Allocations: 2232)
+
+
+Started GET "/users/app" for ::1 at 2023-03-18 14:32:57 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"id"=>"app"}
+  [1m[36mUserApi Load (0.6ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:97:in `set_user'
+Completed 404 Not Found in 22ms (Views: 0.6ms | ActiveRecord: 1.8ms | Allocations: 1974)
+
+
+Started GET "/users/appviewx" for ::1 at 2023-03-18 14:33:53 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"id"=>"appviewx"}
+  [1m[36mUserApi Load (1.0ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:97:in `set_user'
+Completed 404 Not Found in 7ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 556)
+
+
+Started GET "/users/typehead/appviewx" for ::1 at 2023-03-18 14:37:15 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"appviewx"}
+  [1m[36mUserApi Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (first_name like appviewx OR last_name like appviewx OR email like appviewx) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:33:in `typehead'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 3.3ms | Allocations: 2123)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: appviewx):
+  
+app/controllers/users_api_controller.rb:33:in `typehead'
+Started GET "/users/typehead/appviewx" for ::1 at 2023-03-18 14:39:32 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"appviewx"}
+  [1m[36mUserApi Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (first_name like 'appviewx' OR last_name like 'appviewx' OR email like 'appviewx') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:33:in `typehead'
+Completed 404 Not Found in 65ms (Views: 0.9ms | ActiveRecord: 7.7ms | Allocations: 2183)
+
+
+Started GET "/users/typehead/karan" for ::1 at 2023-03-18 14:39:57 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"karan"}
+  [1m[36mUserApi Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (first_name like 'karan' OR last_name like 'karan' OR email like 'karan') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:33:in `typehead'
+  [1m[36mUserApi Load (0.7ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE (first_name like 'karan' OR last_name like 'karan' OR email like 'karan')[0m
+  ↳ app/controllers/users_api_controller.rb:39:in `typehead'
+Completed 200 OK in 22ms (Views: 14.0ms | ActiveRecord: 2.8ms | Allocations: 2960)
+
+
+Started GET "/users/typehead/a" for ::1 at 2023-03-18 14:40:17 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"a"}
+  [1m[36mUserApi Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (first_name like 'a' OR last_name like 'a' OR email like 'a') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:33:in `typehead'
+Completed 404 Not Found in 15ms (Views: 0.7ms | ActiveRecord: 1.3ms | Allocations: 624)
+
+
+Started GET "/users/typehead/k" for ::1 at 2023-03-18 14:40:28 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"k"}
+  [1m[36mUserApi Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (first_name like 'k' OR last_name like 'k' OR email like 'k') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:33:in `typehead'
+Completed 404 Not Found in 11ms (Views: 0.7ms | ActiveRecord: 2.1ms | Allocations: 624)
+
+
+Started GET "/users/typehead/Praj" for ::1 at 2023-03-18 14:40:42 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"Praj"}
+  [1m[36mUserApi Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (first_name like 'Praj' OR last_name like 'Praj' OR email like 'Praj') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:33:in `typehead'
+Completed 404 Not Found in 7ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 624)
+
+
+Started GET "/users/typehead/Prajwal" for ::1 at 2023-03-18 14:40:50 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"Prajwal"}
+  [1m[36mUserApi Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (first_name like 'Prajwal' OR last_name like 'Prajwal' OR email like 'Prajwal') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:33:in `typehead'
+  [1m[36mUserApi Load (1.5ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE (first_name like 'Prajwal' OR last_name like 'Prajwal' OR email like 'Prajwal')[0m
+  ↳ app/controllers/users_api_controller.rb:39:in `typehead'
+Completed 200 OK in 28ms (Views: 13.9ms | ActiveRecord: 2.7ms | Allocations: 1389)
+
+
+Started GET "/users/typehead/appviewx" for ::1 at 2023-03-18 14:46:31 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"appviewx"}
+  [1m[36mUserApi Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (email like '%appviewx%' OR first_name like '%appviewx%' OR last_name like '%appviewx%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:34:in `typehead'
+  [1m[36mUserApi Load (1.2ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE (email like '%appviewx%' OR first_name like '%appviewx%' OR last_name like '%appviewx%')[0m
+  ↳ app/controllers/users_api_controller.rb:40:in `typehead'
+Completed 200 OK in 92ms (Views: 35.7ms | ActiveRecord: 6.5ms | Allocations: 4236)
+
+
+Started GET "/users/typehead/app" for ::1 at 2023-03-18 14:46:56 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"app"}
+  [1m[36mUserApi Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (email like '%app%' OR first_name like '%app%' OR last_name like '%app%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:34:in `typehead'
+  [1m[36mUserApi Load (2.4ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE (email like '%app%' OR first_name like '%app%' OR last_name like '%app%')[0m
+  ↳ app/controllers/users_api_controller.rb:40:in `typehead'
+Completed 200 OK in 40ms (Views: 20.4ms | ActiveRecord: 4.1ms | Allocations: 1561)
+
+
+Started GET "/users/typehead/App" for ::1 at 2023-03-18 14:47:06 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"App"}
+  [1m[36mUserApi Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (email like '%App%' OR first_name like '%App%' OR last_name like '%App%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:34:in `typehead'
+  [1m[36mUserApi Load (1.2ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE (email like '%App%' OR first_name like '%App%' OR last_name like '%App%')[0m
+  ↳ app/controllers/users_api_controller.rb:40:in `typehead'
+Completed 200 OK in 25ms (Views: 11.4ms | ActiveRecord: 2.5ms | Allocations: 1539)
+
+
+Started GET "/users/typehead/App" for ::1 at 2023-03-18 14:47:12 +0530
+Processing by UsersApiController#typehead as */*
+  Parameters: {"search"=>"App"}
+  [1m[36mUserApi Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" WHERE (email like '%App%' OR first_name like '%App%' OR last_name like '%App%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:34:in `typehead'
+  [1m[36mUserApi Load (1.7ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE (email like '%App%' OR first_name like '%App%' OR last_name like '%App%')[0m
+  ↳ app/controllers/users_api_controller.rb:40:in `typehead'
+Completed 200 OK in 33ms (Views: 15.8ms | ActiveRecord: 4.4ms | Allocations: 1539)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-22 23:18:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 21.6ms | Allocations: 630)
+Completed 200 OK in 233ms (Views: 83.0ms | ActiveRecord: 0.0ms | Allocations: 5033)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-22 23:19:24 +0530
+Processing by UsersApiController#index as HTML
+  [1m[36mUserApi Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:4:in `index'
+  [1m[36mUserApi Load (1.3ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis"[0m
+  ↳ app/controllers/users_api_controller.rb:10:in `index'
+Completed 200 OK in 183ms (Views: 115.2ms | ActiveRecord: 5.9ms | Allocations: 8071)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-22 23:19:25 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users/1" for 127.0.0.1 at 2023-03-22 23:19:33 +0530
+Processing by UsersApiController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUserApi Load (0.8ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:97:in `set_user'
+Completed 200 OK in 22ms (Views: 2.1ms | ActiveRecord: 0.8ms | Allocations: 1543)
+
+
+Started GET "/users/" for ::1 at 2023-03-22 23:20:13 +0530
+Processing by UsersApiController#index as */*
+  [1m[36mUserApi Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "user_apis" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:4:in `index'
+  [1m[36mUserApi Load (0.8ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis"[0m
+  ↳ app/controllers/users_api_controller.rb:10:in `index'
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 1.7ms | Allocations: 1928)
+
+
+Started GET "/users/1" for ::1 at 2023-03-22 23:20:31 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUserApi Load (0.6ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:97:in `set_user'
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.6ms | Allocations: 713)
+
+
+Started GET "/users/2" for ::1 at 2023-03-22 23:20:38 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUserApi Load (1.1ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:97:in `set_user'
+Completed 200 OK in 9ms (Views: 1.9ms | ActiveRecord: 1.1ms | Allocations: 691)
+
+
+Started GET "/users/2" for ::1 at 2023-03-22 23:34:14 +0530
+Processing by UsersApiController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUserApi Load (1.5ms)[0m  [1m[34mSELECT "user_apis".* FROM "user_apis" WHERE "user_apis"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_api_controller.rb:97:in `set_user'
+Completed 200 OK in 18ms (Views: 1.9ms | ActiveRecord: 3.7ms | Allocations: 892)
+
+
